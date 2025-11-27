@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.VentasSistemaViewController">
-    
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.VentasSistemaViewController">
+
+    <top>
+        <Label text="Sistema de Ventas" style="-fx-font-size: 20; -fx-padding: 10;"/>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="TOP_CENTER" style="-fx-padding: 20;">
+
+            <TableView fx:id="tablaProductos" prefHeight="200" prefWidth="400">
+                <columns>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                    <TableColumn fx:id="colPrecio" text="Precio" prefWidth="100"/>
+                    <TableColumn fx:id="colStock" text="Stock" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Cantidad:"/>
+                <TextField fx:id="txtCantidad" prefWidth="80"/>
+                <Button text="Agregar al carrito" onAction="#agregarAlCarrito"/>
+            </HBox>
+
+            <ListView fx:id="listaCarrito" prefHeight="150" prefWidth="300"/>
+
+            <Button text="Finalizar compra" onAction="#finalizarCompra"/>
+
+            <Label fx:id="lblEstado" textFill="red"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
